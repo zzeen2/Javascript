@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//     function foo(){
+//         function foo2(){
+//             console.log(num3) 
+//         }
+//     let num3 = 6;
+//     foo2();
+//     let num2 = 3;
+//     foo3();
+//     function foo3(num2){
+//         console.log(num2) //> undefined
+//         function foo4 (){
+//             let num = 2;
+//             console.log(num) 
+//         }
+//         foo4();
+//     }
+//     function foo5() {
+//         console.log(num2); 
+//     }
+//     foo5();
+//     }
+//     foo();
+// /*
+// 함수 안의 매개변수랑 let, const로 선언하는 매개변수는 별개임
+// 함수 안의 매개변수에 값을 대입하고싶으면 함수이름(값)<< 이런식으로 저장해야됨
+// */
+// function studentInfo(name) {
+//    let grade = 'A'; n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       v
+//    let score;
+   
+//    printScore(100);
+   
+//    function printScore(num) {
+//        score = num;
+//        console.log(num); //> 100
+       
+//        function convertScore() {
+//            let grade = 'B'; 
+//            console.log(grade);//> b
+//            console.log(name); //> kim
+//        }
+       
+//        convertScore();
+//        console.log(grade);//> a
+//    }
+   
+//    console.log(score); //> 100
+// }
+
+// studentInfo('Kim');
+
+// function checkOrder() {
+//     let total = 3000; 
+//     calculateTotal();
+    
+//     function calculateTotal() {
+//         let discount = 100;
+//         console.log(total); //>1000
+        
+//         function getDiscount(price) {
+//             console.log(price); //> 2000
+//             console.log(discount); //> 100
+            
+//             total = price - discount;
+//             console.log(total);
+//         }
+        
+//         getDiscount(2000);
+//         console.log(total); //>1900
+//     }
+    
+//     console.log(total);//>1900
+// }
+
+// checkOrder();
+
+// function petShop() {
+//     let count = 15;
+    
+//     function updateStock(price) {
+//         let count = 5;
+//         console.log(count);  //> 5
+        
+//         addItems(3);
+        
+//         function addItems() {
+//             let total = price * count;
+//             console.log(count); //> 5
+//             console.log(total); //> 5000
+            
+//             count = count + 5; // 함수의 매개변수
+            
+//         }
+        
+//         console.log(count); //> 10
+//     }
+    
+//     updateStock(1000);
+//     console.log(count);
+// }
+// petShop();
+function foo() {
+    const num = 1;
+    function foo2() {
+        console.log(num); 
+        const num = 2;
+        function foo3() {
+            const num = 3;
+            console.log(num);
+        }
+
+        function foo4(num) {
+            console.log(num); 
+        }
+        foo4(num);
+    }
+    foo2();
+}
+
+foo();
+
+
+function boo() {
+    function boo2() {
+        console.log(num); 
+        const num = 2;
+    }
+    
+    const num = 1;
+    boo2();
+    boo3();
+    function boo3() {
+        console.log(num) 
+    }
+}
+
+
+
+function bar() {
+    const num = 1;
+    function bar2() {
+        console.log(num); 
+        const num = 2;
+        function bar3() {
+            const num = 3;
+            console.log(num);
+        }
+
+        function bar4(num) {
+            console.log(num);
+        }
+        bar4(num);
+    }
+    bar2();
+}
+
+bar();
+
+
+
+function bar() {
+    function bar2() {
+        const num = 1
+        console.log(num); 
+        if(true) {
+            console.log(num);
+            const num = 2;
+        }
+        function bar3() {
+            console.log(num);
+        }
+
+        function bar4(num) {
+            console.log(num); 
+        }
+        bar4(num);
+    }
+    bar2();
+}
+
+bar();
+</script>
+</html>
+

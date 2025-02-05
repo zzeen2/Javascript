@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "counter">0</div>
+    <button id = "increment_Btn">증가</button>
+    <button id = "decrement_Btn">감소</button>
+    <button id = "increment_Btn2">증가</button>
+    <button id = "decrement_Btn2">감소</button>
+</body>
+<script>
+const createCounter = ()=>{
+    let index = 0; // 함수의 내용이 어휘적 위치에 기록되어있기 때문에
+    // 함수의 주소에 기록되어 있는 index라는 값은 동일함
+    // 기능들을 새롭게 만들 필요가 없다.
+
+    const increment = ()=>{
+        index ++;
+
+    }
+    const decrement = ()=>{
+        index --;
+
+    }
+    const render = (el) => {
+        el.innerHTML = index;
+    }
+    return {increment, decrement, render}
+    //return { increment, decrement} 객체로 내보내기
+    //객체의 키를 할당하는 값을 참조하는 변수명과 같게 할 것이다.
+    // 위처럼 축약하면 increment 키에 값은 increment 변수에서 참조하는 값을 할당할 수 있다.
+    // key가 각각 increment, decrement value가 각각 increment와 decrement가 참조하는 값
+}
+
+// const obj = createCoounter();
+// obj.increment()
+// obj.decrement()
+
+const { increment, decrement, render } = createCounter();
+const { increment: increment2, decrement: decrement2, render: render2 } = createCounter();
+
+increment_Btn.onclick= () =>{
+    increment();
+    render(counter);
+}
+
+decrement_Btn.onclick = ()=> {
+    decrement();
+    render(counter);
+}
+
+increment_Btn2.onclick= () =>{
+    increment2();
+    render(counter2);
+}
+
+decrement_Btn2.onclick = ()=> {
+    decrement2();
+    render(counter2);
+}
+</script>
+</html>

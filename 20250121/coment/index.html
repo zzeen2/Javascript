@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <ul class = "comment">
+        <li class = "comment-form"> 
+            <form action ="" id="comment-frm"> <!--객체 생성-->
+                <!--submit 이벤트를 가지고있는 태그 action 요청의 내용 get post(백엔드)-->
+                <h4>댓글 쓰기 <span>0</span></h4>
+                <span class = "ps-box">
+                    <!--name 키에 값은 인풋요소-->
+                    <!--
+                    form태그떄문에 생성되는 객체 ={
+                        content_n : 이벤트 요소
+                    }
+                    input 태그때문에 생성되는 객체 = {
+                        value : 입력창에 입력하는 값
+                    }
+                    -->
+                    <input type = "text" placeholder="댓글을 입력하세요" class="int" name="content_n">
+                    <!--얘는 이벤트만 발생 키-값이 발생하지 않음-->
+                </span>
+                <input type="submit" class="btn" value="등록">
+                <!-- <button type="submit">등록</button> -->
+            </form>
+            <!-- xss
+                form이라는 태그는 특별한 기능을 가지고 있는 태그 중 하나
+                요청을 보낼 수 있는 기능을 가지고 있다. submit 이벤트가 발생하면서 일어난다.
+
+                form 태그 안에서 중요한 역할을 하는 요소는 submit 버튼 input 
+                    input의 name이라는 키가 서버에 데이터를 보낼때
+                    데이터를 보내는 형태가 JSON "`{ content : 내 입력값 }`"" << 문자열을 객체로 형변환하겠다.
+            -->
+        </li>
+        <li id = "comment-list">
+
+        </li>
+    </ul>
+</body>
+<script src ="./index.js"></script>
+</html>

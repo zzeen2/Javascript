@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function foo () {
+    debugger;
+    foo2();
+    debugger;
+    
+}
+
+function foo2(){
+    debugger;
+    let myValue =1;
+    debugger;
+    function foo3(){
+        debugger;
+        console.log(myValue); //스코프 체이닝
+    }
+    debugger;
+    foo3();
+    debugger;
+}
+
+debugger; //코드의 중단점
+foo();
+debugger;
+</script>
+</html>

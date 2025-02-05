@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <label for="">아이디 입력</label>
+    <input type="text" id = "uid">
+    <button id = "save_btn">입력값을 저장</button>
+    <button id = "load_btn">입력한 값 불러오기</button>
+<script>
+    // 사용자가 입력한 값을 클로저 함수로 사용
+    const uidInput = ()=>{
+        let uidValue = "";
+        return {
+            set : (text) =>{ // 객체 안의 메서드
+                uidValue = text;
+            },
+            get : () => {
+                return uidValue;
+            }
+        }
+    }
+    const uidValue = uidInput();
+    // onchanege 요소의 값이 변경되었을때 발생하는 이벤트 
+    // onkeydown 요소의 값이 바뀔때마다 발생하는 이벤트
+    // uid.onchange = (e) =>{ 
+    //     console.log(e.target)
+    //     const {value} = e.target;
+    //     uidValue.set(value);
+
+    // }
+
+    // uid.onchange = (e) =>{ 
+    //     console.log(e.target)
+    //     const {value} = e.target;
+    //     uidValue.set(value);
+
+    // }
+
+    save_btn.onclick = () =>{
+        const { value} = uid;
+        uidValue.set(value);
+    }
+    load_btn.onclick = () =>{
+        uid.value = uidValue.get();
+    }
+    const render = () =>{
+        
+    }
+</script>
+</html>

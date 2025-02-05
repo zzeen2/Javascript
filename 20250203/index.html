@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            margin: auto;
+        }
+        .login-form label {
+            margin: 10px 0;
+        }
+        .login-form button{
+            margin-top: 20px;
+        }
+        .user-info {
+            width: 500px;
+            height: 300px;
+            margin: 20px auto 0 auto;
+            border: 1px solid;
+            position: relative;
+        }
+        .user-info img{
+            width: 250px;
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%, -50%)
+        }
+    </style>
+</head>
+<body>
+    <form class="login-form">
+        <label for="">아이디</label>
+        <input type="text" name = "uid">
+        <label for="">비밀번호</label>
+        <input type="password" name = "upw">
+        <button>로그인</button>
+    </form>
+    <div class = "user-info">
+    </div>
+    
+</body>
+<script>
+    const data = {
+        nickName : "kim",
+        uid : "admin",
+        password : "1234"
+    }
+    
+    // 로그인 버튼 클릭시 실행되는 함수---------------------------------
+    const login = (uid, upw) =>{
+        // 로딩 gif 대용량이 아닌 경우 진행도를 표현할 필요가 없다.
+        const img = document.createElement('img'); //<img> 태그를 생성
+        img.src = './images/loading.gif'
+
+        document.querySelector('.user-info').innerHTML = "";
+        document.querySelector('.user-info').append(img);
+        
+        // disabled
+        // input의 입력을 막는 속성
+        // 이후에 setTimeout은 콜스텍에 있는 내용을 모두 처리하고 호출하기 때문에 원하는 시점이 정확하지 않다.
+        // 서버에서 클라이언트에 로그인 검증을 알려주는 시간이 1초걸린다. 
+        // setTimeoutn 사용해서 1초뒤에 내용을 검사 x 지금은 비동기를 경험하기 위해사 사용한것
+
+        // 데이터를 응답 받는데까지 기다리고 코드를 진행 시켜야 한다.
+        // 서버에서 데이터를 받았어라고 알려주고 처리를 하게 해야함.
+        setTimeout(() => { // 1초뒤에 loginCheck 실행 ( 서버 응답을 기다리는 것처럼 설정 )
+            loginCheck(uid, upw); // 1초후 loginCheck함수 실행
+        },1000)
+
+        const inputs = document.querySelectorAll('.login-form input');
+        inputs.forEach((e) => {
+            e.disabled = true;
+        });
+    }
+
+    // 로그인 체크 함수 --------------------------------------------
+    const loginCheck = (uid, upw) => {
+        // 로그인 결과를 표시할 공간 생성
+        const nickName = document.createElement("div"); 
+        document.querySelector('.user-info').innerHTML = "";
+        if ((uid === data.uid) && (upw === data.password)){
+            console.log("로그인 성공");
+            nickName.innerHTML = `유저 닉네임 : ${data.nickName}`}
+            else {
+            console.log("로그인 실패");
+            nickName.innerHTML = "아이디와 비밀번호를 다시 입력하세요"
+        }
+        const inputs = document.querySelectorAll('.login-form input');
+        inputs.forEach((e) => {
+            e.disabled = false;
+        })
+        // 로그인 결과 메세지를 .user-info에 추가
+        document.querySelector('.user-info').append(nickName)
+    }
+
+    // 로그인 버튼 클릭 이벤트 설정 ----------------------------------
+        // form 요소를 선택해서 이 요소가 제출될때 실행하는 이벤트 함수 설정
+    document.querySelector('.login-form').onsubmit = (e) =>{
+        e.preventDefault();
+        // e.target은 이벤트가 발생한 요소를 의미(form 요소)
+        // form내부의 input요소를 구재분해 할당을 히용해 uid와 upw를 가져옴
+        const {uid, upw} = e.target;
+        //로그인함수를 실행하면서 입력한 아이디와 비밀번호 전달
+        login(uid.value, upw.value);
+    }
+
+
+    // --------------------------------------------------------다른거
+    // //setInterval : 1초마다 프로그램이 끝날때까지 실행시킨다.
+    // const set = setInterval(()=>{
+    //     console.log("안녕")
+    // },1000)
+
+    // // 메모리에서 해제
+    // clearInterval(set);
+    
+    // // 함수호출 했을때
+    // function a (){
+    //     return 1;
+    // }
+    // a();
+
+    // document.querySelector('div').addEventListener()
+    // // 아래와 같음
+    // // const b = document.querySelector('div')
+    // // b.addEventListener()
+</script>
+</html> 

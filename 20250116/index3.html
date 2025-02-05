@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function petShop() {
+    let count = 15;
+    
+    function updateStock(price) {
+        let count = 5;
+        console.log(count);
+        
+        addItems(3);
+        
+        function addItems(count) {
+            let total = price * count;
+            console.log(count); 
+            console.log(total); 
+            
+            count = count + 5; 
+        }
+        
+        console.log(count); 
+    }
+    
+    updateStock(1000);
+    console.log(count);
+}
+petShop();
+
+
+function checkOrder() {
+    let total = 1000;
+    calculateTotal();
+    
+    function calculateTotal() {
+        let discount = 100;
+        console.log(total); //>1000
+        
+        function getDiscount(price) {
+            console.log(price); //> 2000
+            console.log(discount); //> 100
+            
+            price = price - discount;
+            console.log(total);
+        }
+        
+        getDiscount(2000);
+        console.log(price); //>1900
+    }
+    
+    console.log(total);//>1900
+}
+
+checkOrder();
+
+
+</script>
