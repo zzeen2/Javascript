@@ -142,6 +142,12 @@ git config user.email "jking120393@gmail.com"
 # 글로벌 영역에 추가를 해놓고 사용하면 이후에 만드는 최초의 브런치는 이름이 main
 git config init.defaultBranch main
 
+# 원격 저장소 추가
+git push -u origin main https://github.com/zzeen2/project.git
+# origin 별칭으로원격 자정소 주소 https://github.com/zzeen2/project.git 저장해놓는것
+
+# 원격 저장소에 로컬에 있는 git저장소의 이력을 업로드 origin은 원격 저장소 주소가 별칭으로 된 것
+git push -u origin main
 ```
 
 # 로컬에서 깃 저장소 사용
@@ -174,6 +180,15 @@ git add . # 현재 경로에 있는 모든 언트래킹된 파일과 수정내�
 gir commit #vim으로 내용을 출력해주고, 안에서 작업내용을 작성해서 저장 후 종료
 # 여기에 -m을 추가하면 메서지를 작성하고 커밋한다는 뜻
 git commit -m "[fix] : 게시판의 스크롤 수정"
+# 스테이징의 내용에 추가 스냅샷 이력이 남는것 커밋 내용을 저장소에 기록 스냅샷 발생
+# SHA1으로 암호회돤 이름으로 작성된다. << 보안화 해서 문자열을 다루기 위해서
+# 커밋의 내용이 겹치지 않게 하기 위해서 해시값을 구해서 만든 값.
+
+git log : 커밋 상태인 내용 확인
+
+git push : 다른 원격 저장소에 이력을 전달할 때, 브런지 간에도 가능
+
+git pull : 원격 저장소 혹은 다른 저장소의 내용을 가져올때
 
 ```
 ** 커밋 메세지 컨벤션 **
@@ -186,3 +201,12 @@ git commit -m "[fix] : 게시판의 스크롤 수정"
 - [refactor] : 코드 리펙토링
 - [rename] : 파일 이름 수정
 - [remove] : 파일을 이동했거나 삭제했다.
+
+### git은 로컬의 저장소 github는 클라우드 저장소
+> git과 github의 차이가 뭐에요
+> git은 우리 컴퓨터에 저장되는 저장소
+> github는 네트워크에서 저장되는 저장소
+
+### 실습과제
+본인 원격 저장소를 하나 만들고 원격저장소에 수업한 자료를 하루에 하나씩 올리고 
+본인이 공부한 내용 
