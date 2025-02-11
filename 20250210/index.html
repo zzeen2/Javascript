@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">검색할 사용자의 이름</label>
+    <input type="text" id = "user_search">
+    <button id="next_btn">페이지 이동</button>
+</body>
+<script>
+    console.log(window.location)
+    next_btn.onclick =() =>{
+        window.location.href=`./index2.html?name=${user_search.value}&age=20`
+        // 페이지를 요청한다.
+    }
+</script>
+</html>

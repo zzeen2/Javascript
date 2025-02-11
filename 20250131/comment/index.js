@@ -1,6 +1,7 @@
-let data = [];
+let data = [];// 댓글 객체들을 저장하는 배열
 
-class Comment {
+
+class Comment { // 댓글을 객체로 만들기
     constructor(_index, _value, _name, _image) {
         this.index = _index;
         this.value = _value;
@@ -9,7 +10,7 @@ class Comment {
     }
 }
 
-content_form.onsubmit = (e) => {
+content_form.onsubmit = (e) => { // 폼(form)이 제출될때 실행되는 이벤트 핸들러
     // e.preventDefault();
     const {content_value, content_name, content_image } = e.target;
 
@@ -45,8 +46,8 @@ content_form.onsubmit = (e) => {
     // // 주고 받은 이후에 JSON 문자열을 사용하기 위해서
     // const obj = JSON.parse(str); // JSON 문자열을 객체의 형태로 변환
     // console.log(obj)
-    const content_JSON = JSON.stringify(data);
-    localStorage.setItem('comment', content_JSON);
+    const content_JSON = JSON.stringify(data); 
+    localStorage.setItem('comment', content_JSON); // 로컬스토리지에 data를 저장해서 새로고침해도 유지되도록
 }
 
 
