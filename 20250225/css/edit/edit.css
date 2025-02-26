@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#moon {
+    position: fixed;
+    height: 80vh;
+    left: 0;
+    top: -20vh;
+    z-index: -100;
+    opacity: 50%;
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s ease-out;
+}
+
+#moon2 {
+    position: fixed;
+    height: 70vh;
+    right: 0;
+    bottom: 0;
+    z-index: -90;
+    opacity: 30%;
+    animation: float 8s ease-in-out infinite reverse;
+    transition: transform 0.3s ease-out;
+}
+
+#space_back {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -110;
+    opacity: 30%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    z-index: 10;
+    animation: fadeInDown 1s ease forwards;
+}
+
+.moon-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+    animation: pulse 3s infinite alternate;
+}
+
+.main_txt {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 
+        2px 2px 3px rgba(150, 150, 150, 0.5),  
+        -2px -2px 3px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(to right, #e0e0e0, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    animation: shimmer 3s infinite alternate;
+}
+
+#content_box {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    max-width: 900px;
+    min-height: 65vh;
+    margin: 0 auto 5vh;
+    border-radius: 20px;
+    padding: 30px;
+    background: rgba(228, 227, 227, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: -5px -3px 3px 3px rgba(200, 200, 200, 0.7) inset, 
+            3px 2px 3px 3px rgba(200, 200, 200, 0.7);
+    position: relative;
+    animation: fadeIn 0.8s ease-out forwards;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 25px;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.title_box, .writing_box {
+    margin-bottom: 20px;
+    animation: fadeInUp 0.5s ease-out forwards;
+    width: 100%;
+}
+
+.title_box {
+    animation-delay: 0.1s;
+}
+
+.writing_box {
+    animation-delay: 0.2s;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+label {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: rgb(68, 68, 68);
+    margin-bottom: 8px;
+    display: block;
+}
+
+#edit_title {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 15px;
+    box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#edit_content {
+    width: 100%;
+    padding: 15px;
+    flex-grow: 1;
+    min-height: 300px;
+    resize: none;
+    border: none;
+    box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#edit_title:focus, #edit_content:focus {
+    outline: none;
+    box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.3), 0 0 5px rgba(100, 100, 100, 0.5);
+    background-color: white;
+}
+
+.button_box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    animation: fadeInUp 0.5s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 1rem;
+    background-color: #aaa;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease-in-out;
+}
+
+button:hover::after {
+    left: 100%;
+}
+
+#cancel_btn {
+    background-color: #999;
+}
+
+#cancel_btn:hover {
+    background-color: #888;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#save_btn {
+    background-color: #777;
+}
+
+#save_btn:hover {
+    background-color: #666;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 애니메이션 정의 */
+@keyframes twinkle {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -100px; }
+    100% { background-position: 100px; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 별 배경 효과 만들기 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -90;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 50px 160px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 90px 40px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0)),
+                    radial-gradient(2px 2px at 160px 120px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 4s infinite alternate;
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+    #content_box {
+        width: 75%;
+    }
+    
+    .main_txt {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #content_box {
+        width: 85%;
+        padding: 25px 20px;
+    }
+    
+    .main_txt {
+        font-size: 2.8rem;
+    }
+    
+    label {
+        font-size: 1.1rem;
+    }
+    
+    #edit_title {
+        height: 45px;
+        padding: 12px;
+    }
+    
+    .button_box {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
